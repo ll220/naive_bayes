@@ -91,4 +91,4 @@ def allPreProcess():
     writeToFile(trainingFeatureSets, trainingVocab, "preprocessed_train.txt")
     writeToFile(testFeatureSets, testVocab, "preprocessed_test.txt")
     
-    return trainingFeatureSets, len(trainingVocab), trainingVocab, testFeatureSets, len(testVocab), testVocab
+    return trainingFeatureSets, len(trainingVocab), testFeatureSets, len(testVocab)
