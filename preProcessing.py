@@ -42,6 +42,7 @@ def makeReviewArray(wordCLArray):
 
 def getVocab(reviewArray):
     vocabList = []
+
     for i in reviewArray: 
         i.addVocab(vocabList)
 
@@ -90,4 +91,4 @@ def allPreProcess():
     writeToFile(trainingFeatureSets, trainingVocab, "preprocessed_train.txt")
     writeToFile(testFeatureSets, testVocab, "preprocessed_test.txt")
     
-    return trainingFeatureSets, trainingVocab, testFeatureSets, testVocab
+    return trainingFeatureSets, len(trainingVocab), trainingVocab, testFeatureSets, len(testVocab), testVocab
