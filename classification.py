@@ -5,7 +5,7 @@ import features
 import re
 import math 
 
-trainingFeatureSets, trainVocabSize, testFeatureSets, testVocabSize = preProcessing.allPreProcess()
+trainingFeatureSets, trainVocabSize, testFeatureSets = preProcessing.allPreProcess()
 trainingSetProbabilities = setProbabilities.setProbs(trainingFeatureSets, trainVocabSize)
 
 
@@ -36,5 +36,13 @@ def getTrainingResults(featureSets, vocabSize, trainingSetProbabilities):
     return (float(numCorrectPredictions) / float(len(featureSets)))
 
 
-print('Accuracy for trainingSet in training and testing: ', getTrainingResults(trainingFeatureSets, trainVocabSize, trainingSetProbabilities))
-print('Accuracy for trainingSet in training and testSet in testing: ', getTrainingResults(testFeatureSets, trainVocabSize, trainingSetProbabilities))
+trainTrainPredictions = getTrainingResults(trainingFeatureSets, trainVocabSize, trainingSetProbabilities)
+trainTestPredictions = getTrainingResults(testFeatureSets, trainVocabSize, trainingSetProbabilities)
+
+f = open("results.txt", "w")
+
+f.write('Accuracy for trainingSet in training and testing: ')
+f.write(str(trainTrainPredictions))
+f.write("\n")
+f.write('Accuracy for trainingSet in training and testSet in testing: ')
+f.write(str(trainTestPredictions))
